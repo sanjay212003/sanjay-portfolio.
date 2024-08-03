@@ -217,7 +217,9 @@ img {
   fill: var(--first-color);
 }
 .home__blob-img {
-  width: 360px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /*BUTTONS*/
@@ -244,6 +246,8 @@ img {
 }
 .about__img {
   justify-self: center;
+  background-color: rgb(192, 217, 248);
+  border-radius: 20px;
 }
 .about__img img {
   width: 200px;
@@ -307,6 +311,49 @@ img {
 }
 
 /* ===== WORK =====*/
+
+.work__img {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.work__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures the image covers the entire container */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.work__img:hover img {
+  transform: scale(1.1);
+}
+
+/* Overlay styling */
+.work__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.work__img:hover .work__overlay {
+  opacity: 1;
+}
+
 .work__container {
   row-gap: 2rem;
 }
@@ -341,6 +388,13 @@ img {
   cursor: pointer;
   margin-left: auto;
 }
+
+#contact-form-status {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #f00;
+}
+
 
 /* ===== FOOTER =====*/
 .footer {
